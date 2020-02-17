@@ -1,0 +1,14 @@
+.search-wrapper {
+  position: relative;
+}
+
+.search-wrapper .search-input {
+  box-sizing: border-box !important;
+  padding-right: 40px !important;
+}
+
+.search-wrapper i.material-icons {
+  position: absolute;
+  top: 11px;
+  right: 8px;
+}
