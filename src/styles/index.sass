@@ -1,0 +1,41 @@
+@import 'variables.scss'
+@import 'mixins'
+@import 'grid'
+@import 'form'
+
+
+*
+  box-sizing: border-box
+
+*::selection 
+  background-color: #26a69a
+  color: #fff
+
+
+body 
+  margin: 0
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  color: #333
+  font-size: 1rem
+
+
+code 
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace
+
+
+h1
+  @include adopt(xs)
+    font-size: 1.7em
+  @include adopt(sm)
+    font-size: 2em
+
+p, a 
+  user-select: text
+
+a
+  color: #333333
+
+  &:hover
+    color: $primary

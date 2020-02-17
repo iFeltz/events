@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actions from "../actions";
+import * as actions from "../../actions";
 
 class EventPage extends React.Component {
   componentDidMount() {
@@ -22,8 +22,8 @@ class EventPage extends React.Component {
       event === null ? <div className="event"></div> : (
         <div className="event">
           <div className="container">
-            <div className="row row-flex">
-              <div className="col s12">
+            <div className="row">
+              <div className="col">
                 <h1>{event.title}</h1>
               </div>
             </div>

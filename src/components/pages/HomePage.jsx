@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actions from "../actions";
+import * as actions from "../../actions";
 
-import EventList from "../components/EventList";
+import EventList from "../Event/EventList";
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -21,7 +21,7 @@ class HomePage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h1>Важные мероприятия в СПб</h1>
+              <h1>Важные мероприятия&nbsp;в&nbsp;СПб</h1>
             </div>
           </div>
           <EventList events={this.props.events} />

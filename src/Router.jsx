@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { withRouter } from 'react-router';
-import Home from './pages/HomePage';
-import Event from './pages/EventPage';
+import Home from './components/pages/HomePage';
+import Event from './components/pages/EventPage';
 
 const routes = [
   {

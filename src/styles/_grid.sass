@@ -1,0 +1,49 @@
+.container
+	max-width: 100%
+	width: 100%
+	margin-left: auto
+	margin-right: auto
+	padding-left: 15px
+	padding-right: 15px
+
+	@include adopt(xs)
+		max-width: 516px
+
+	@include adopt(sm)
+		max-width: 768px
+
+	@include adopt(md)
+		max-width: 960px
+
+.row
+	position: relative
+	display: flex
+	flex-wrap: wrap
+	margin-left: -15px
+	margin-right: -15px
+
+.col
+	position: relative
+	width: 100%
+	padding-left: 15px
+	padding-right: 15px
+	box-sizing: border-box
+
+.col-sm
+	@include adopt(sm)
+		max-width: 100%
+		width: 100%
+
+.col-md
+	@include adopt(md)
+		max-width: 50%
+		width: 50%
+
+.col-lg
+	@include adopt(lg)
+		max-width: 33.3333%
+		width: 33.3333%
+
+.col-xl
+	max-width: 25%
+	width: 25%

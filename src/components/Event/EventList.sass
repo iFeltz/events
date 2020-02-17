@@ -1,0 +1,41 @@
+@import '../../styles/variables'
+@import '../../styles/mixins'
+
+.event-list
+  
+  &__header
+    margin-bottom: 30px
+
+  &__search-wrapper
+    position: relative
+    
+    input.input-label
+      width: 40%
+
+      @include adopt(xs)
+        width: 100%
+
+      @include adopt(sm)
+        width: 60%
+
+      @include adopt(md)
+        width: 40%
+
+      &:focus
+        width: 100%
+
+  
+  &__search-wrapper i.clear
+    position: absolute
+    opacity: 0
+    top: 11px
+    right: 8px
+    cursor: pointer
+    transition: opacity .3s ease
+
+    &:hover
+      color: $primary
+
+  &__search-wrapper input.input-label:focus + i.clear
+    opacity: 1
+

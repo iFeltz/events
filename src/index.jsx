@@ -1,11 +1,9 @@
-import "materialize-css/dist/css/materialize.min.css";
-
 import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import reduxThunk from "redux-thunk";
-import "./index.css";
+import "./styles/index.sass";
 import * as serviceWorker from "./serviceWorker";
 
 import App from "./App";
