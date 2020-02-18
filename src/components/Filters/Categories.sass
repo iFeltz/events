@@ -1,0 +1,64 @@
+@import '../../styles/variables.scss'
+	
+.categories
+	position: relative
+	max-width: 260px
+	width: 100%
+
+	&-select
+		position: relative
+		padding: 14px 50px 14px 12px
+		border: 1px solid $light-gray
+		border-radius: 3px
+		font-size: 16px
+		line-height: 24px
+		text-overflow: ellipsis
+		overflow: hidden
+		white-space: nowrap
+		color: $gray
+		cursor: pointer
+
+		&:hover
+			color: #333
+
+		i.material-icons
+			position: absolute
+			right: 10px
+			top: 0
+			bottom: 0
+			margin: auto 0
+			width: 24px
+			height: 24px
+
+	&-dropdown
+		position: absolute
+		left: 0
+		top: 54px
+		max-width: calc(100vw - 30px)
+		width: 300px
+		height: 0
+		transition: height .3s ease
+		z-index: 3
+		overflow-y: auto
+		background-color: #fff
+		box-shadow: 3px 8px 15px -3px #333
+
+		&.active
+			height: 400px
+
+		&__list
+			list-style: none
+			padding-left: 0
+			margin: 0
+
+		&__item
+			padding: 10px 15px
+			border-bottom: 1px solid $gray
+			cursor: pointer
+			
+			&:hover
+				background-color: $light-gray
+
+		&__empty
+			padding-top: 30px
+			text-align: center

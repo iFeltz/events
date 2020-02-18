@@ -1,3 +1,5 @@
+@import 'variables.scss'
+
 @mixin adopt($breakpoint) 
 
   // If the breakpoint exists in the map.
@@ -13,8 +15,7 @@
 	
 
   // If the breakpoint doesn't exist in the map.
-   @else 
+  @else
 
     // Log a warning.
     @warn 'Invalid breakpoint: #$breakpoint.'
-    

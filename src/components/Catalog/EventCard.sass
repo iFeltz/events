@@ -1,0 +1,37 @@
+@import '../../styles/variables'
+  
+.event-card 
+  display: block
+  color: #eee
+  background-color: #2f2f2f
+  border: 1px solid #5a5353
+  padding: 15px
+  margin-bottom: 30px
+  box-shadow: 1px 1px 4px 0 #2f2f2f
+  transition: all .3s ease
+
+  &:hover
+    border-color: transparent
+    box-shadow: 3px 3px 9px 1px #2f2f2f
+
+  &__link
+    display: block
+    text-decoration: none
+
+  &__title
+    color: inherit
+    margin: 10px 0
+
+  &__description
+    p
+      font-weight: 200
+
+  &__favorite
+    width: 24px
+    height: 24px
+    margin-left: auto
+    cursor: pointer
+    transition: opacity .3s
+
+    &:hover
+      opacity: .8
