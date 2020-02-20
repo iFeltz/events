@@ -14,25 +14,30 @@ const Catalog = ({
 		/********************/
 		/****** FILTER ******/
 		/********************/
-		let result;
+		let result = events;
 
 		if (favoritesOnly) result = favoriteEvents;
-		else result = events;
+		if (search) result = filterSearch(result);
+		if (category) result = filterCategory(result);
 
-		if (search) {
-			let re = new RegExp(search, 'i');
-			// поиск по названию и описанию
-			result = result.filter(event =>
-				re.test(`${event.short_title} ${event.description}`)
-			);
-		}
-
-		if (category) {
-			result = result.filter(event => event.categories.includes(category));
-		}
+		/* TODO: i should add price sort, probably */
 
 		setFilteredEvents(result);
+
+		// eslint-disable-next-line
 	}, [events, search, category, favoriteEvents, favoritesOnly]);
+
+	const filterSearch = elements => {
+		let re = new RegExp(search, 'i');
+		// поиск по названию и описанию
+		return elements.filter(event =>
+			re.test(`${event.short_title} ${event.description}`)
+		);
+	};
+
+	const filterCategory = elements => {
+		return elements.filter(event => event.categories.includes(category));
+	};
 
 	const renderEvents = () => {
 		return filteredEvents.map(event => {

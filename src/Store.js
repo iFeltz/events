@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
+// TODO: fetch favoriteEvents && filter from localStorage
 const state = {
 	event: {},
 	events: [],

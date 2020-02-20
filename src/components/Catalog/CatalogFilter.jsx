@@ -15,7 +15,7 @@ const CatalogFilter = ({
 	updateFilter
 }) => {
 	const [filter, setFilter] = useState({
-		search,
+		search: search || '',
 		category,
 		priceSort,
 		favoritesOnly
@@ -41,7 +41,7 @@ const CatalogFilter = ({
 	return (
 		<div className="catalog-filter">
 			<div className="catalog-filter__search">
-				<Search query={filter.search || ''} handleSearch={handleSearch} />
+				<Search query={filter.search} handleSearch={handleSearch} />
 			</div>
 			<div className="catalog-filter__categories">
 				<Categories handleSelect={handleCategorySelect} />

@@ -11,7 +11,7 @@ const Categories = ({
 }) => {
 	const [activeCat, setActiveCat] = useState({
 		slug: null,
-		name: 'Выберите категорию'
+		name: 'Выберать категорию'
 	});
 	const [availableCategories, setAvailableCategories] = useState([]);
 	const [open, setOpen] = useState(false);
@@ -23,13 +23,9 @@ const Categories = ({
 
 	useEffect(() => {
 		let arr;
-		if (favoritesOnly) {
-			arr = favoriteEvents.reduce(
-				(acc, event) => [...acc, ...event.categories],
-				[]
-			);
-		} else
-			arr = events.reduce((acc, event) => [...acc, ...event.categories], []);
+		// show actual categories for favorite events or all events
+		if (favoritesOnly) arr = getCategories(favoriteEvents);
+		else arr = getCategories(events);
 		// remove non-unique categories
 		arr = [...new Set(arr)];
 
@@ -46,6 +42,13 @@ const Categories = ({
 
 		setAvailableCategories(res);
 	}, [categories, events, favoritesOnly, favoriteEvents]);
+
+	const getCategories = shownEvents => {
+		return shownEvents.reduce(
+			(acc, event) => [...acc, ...event.categories],
+			[]
+		);
+	};
 
 	// if clicked out of dropdown, close the dropdown
 	document.body.addEventListener('click', e => {
@@ -73,7 +76,8 @@ const Categories = ({
 		setActiveCat(cat);
 	};
 
-	const resetCat = () => {
+	const resetCat = e => {
+		e.stopPropagation();
 		setActiveCat({
 			slug: null,
 			name: 'Выбрать категорию'
@@ -107,7 +111,7 @@ const Categories = ({
 		<div id="cat-dropdown" className="categories" onClick={toggleDropdown}>
 			<div className="categories-select" title={activeCat.name}>
 				{activeCat.name}
-				<i className="material-icons" onClick={resetCat}>
+				<i className="material-icons" onClick={activeCat.id ? resetCat : null}>
 					{activeCat.id ? 'clear' : 'arrow_drop_down'}
 				</i>
 			</div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import LazyLoad from 'react-lazyload';
 import * as actions from '../../actions';
 import './EventCard.sass';
 
@@ -25,7 +26,6 @@ const EventCard = ({ event, favoriteEvents, updateFavorites }) => {
 			newFavorites.splice(key, 1);
 		}
 
-		console.log({ eventId: event.id, favorite });
 		updateFavorites([...newFavorites]);
 		// eslint-disable-next-line
 	}, [favorite]);
@@ -48,21 +48,24 @@ const EventCard = ({ event, favoriteEvents, updateFavorites }) => {
 	const { id, description } = event;
 
 	return (
-		<div className="event-card">
-			<Link to={`/event/${id}`} className="event-card__link">
-				<img width="100%" src={getImage()} alt="" />
-				<h3 className="event-card__title">{getTitle()}</h3>
-			</Link>
-			<div
-				className="event-card__description"
-				dangerouslySetInnerHTML={{ __html: description }}
-			></div>
-			<div className="event-card__favorite" onClick={handleFavorite}>
-				<i className="material-icons">
-					{favorite ? 'favorite' : 'favorite_border'}
-				</i>
+		<LazyLoad once offset={500}>
+			<div className="event-card">
+				<Link to={`/event/${id}`} className="event-card__link">
+					{/* TODO: add lazy loading */}
+					<img width="100%" src={getImage()} alt="" />
+					<h3 className="event-card__title">{getTitle()}</h3>
+				</Link>
+				<div
+					className="event-card__description"
+					dangerouslySetInnerHTML={{ __html: description }}
+				></div>
+				<div className="event-card__favorite" onClick={handleFavorite}>
+					<i className={'material-icons' + (favorite ? ' active' : '')}>
+						{favorite ? 'favorite' : 'favorite_border'}
+					</i>
+				</div>
 			</div>
-		</div>
+		</LazyLoad>
 	);
 };
 
